@@ -11,7 +11,7 @@ class Estado(models.Model):
 
 class Cidade(models.Model):
     uf = models.ForeignKey(Estado, on_delete=models.CASCADE)
-    cidade = models.CharField(max_length=100)
+    cidade = models.CharField(max_length=100)    
 
     def __str__(self) -> str:
         return self.cidade

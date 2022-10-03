@@ -8,8 +8,11 @@ class EstadoAdmin(admin.ModelAdmin):
 
 @admin.register(Cidade)
 class CidadeAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ('cidade', 'uf__estado')
+    list_display = ('uf', 'cidade')
+    list_per_page = 20
 
 @admin.register(Area)
 class AreaAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ('area ', 'cidade__cidade')
+    list_display = ('cidade', 'area')
