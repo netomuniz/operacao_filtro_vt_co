@@ -4,8 +4,8 @@ from . models import Estado, Cidade, Area
 
 @admin.register(Estado)
 class EstadoAdmin(admin.ModelAdmin):
-    pass
-
+    search_fields = ('us', 'estado')
+    
 @admin.register(Cidade)
 class CidadeAdmin(admin.ModelAdmin):
     search_fields = ('cidade', 'uf__estado')
@@ -14,5 +14,6 @@ class CidadeAdmin(admin.ModelAdmin):
 
 @admin.register(Area)
 class AreaAdmin(admin.ModelAdmin):
-    search_fields = ('area ', 'cidade__cidade')
+    search_fields = ('area', 'cidade__cidade')
     list_display = ('cidade', 'area')
+    list_per_page = 20
